@@ -1,0 +1,36 @@
+@if(ProductDetails){
+    <section>
+        <h2 class="text-center text-main my-2">Product Details</h2>
+        <div class="row align-items-center">
+            <div class="col-md-3">
+    <div>
+        <img [src]="ProductDetails.imageCover" [alt]="ProductDetails.title" class="w-100">
+    </div>
+            </div>
+            <div class="col-md-9">
+       <div>
+        <h3>{{ProductDetails.title}}</h3>
+        <p class="text-muted">{{ProductDetails.description}}</p>
+        <h3 class="h6">{{ProductDetails.category.name}}</h3>
+        <div class="d-flex justify-content-between align-items-center">
+            <span>{{ProductDetails.price}}EGP</span>
+    
+            <div>
+           @for (num of [1,2,3,4,5].slice(0 , ProductDetails.ratingsAverage); track $index) {
+           <span><i class="fa-solid fa-star" style="color: #FFD43B;"></i></span>
+    
+            }
+            @if(ProductDetails.ratingsAverage % 1 !== 0){
+               <i class="fa-regular fa-star-half-stroke" style="color: #FFD43B;"></i>
+            }
+               <span class="text-muted">{{ProductDetails.ratingsAverage}}</span>
+    
+            </div>
+             </div>
+             <button class="btn-main w-100">+Add to cart</button>
+       </div>
+            </div>
+        </div>
+    </section>
+    
+}

@@ -1,0 +1,16 @@
+<section class="my-2">
+    <h2>Popular Catogries:</h2>
+    
+  <div class="row">
+    @for (cat of catogriesList; track cat._id) {
+       
+        <div class="col-md-3">
+            <img [src]="cat.image" [alt]="cat.name" class="w-50" height="250px">
+        <h3 class="h6 text-main">{{cat.name}}</h3>
+        </div>
+              
+            }
+          
+  </div>
+  </section>
+ 

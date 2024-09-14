@@ -1,0 +1,67 @@
+<section>
+    <h1 class="text-center text-main my-2">Forgot Password</h1>
+@if(step == 1){
+
+    <form [formGroup]="verifyEmail" class="bg-main-light rounded-4 p-3 shadow" (ngSubmit)="VerifyEmailSub()">
+        <div class="my-2">
+            <label for="email">email</label>
+            <input formControlName="email" type="email" id="email" class="form-control">
+        </div>
+        <button [disabled]="verifyEmail.invalid" class="btn-main"> Verify Email
+            @if(isLoading == true){
+    
+                <span>
+                    <i class="fas fa-spin fa-spinner "></i>
+                </span>
+            }
+        </button>
+
+
+
+    </form>
+}
+
+
+@if(step == 2){
+
+    <form [formGroup]="verifyCode" class="bg-main-light rounded-4 p-3 shadow" (ngSubmit)="VerifyCodeSub()">
+        <div class="my-2">
+            <label for="resetCode"> Reset Code</label>
+            <input formControlName="resetCode" type="text" id="resetCode" class="form-control">
+        </div>
+        <button [disabled]="verifyCode.invalid" class="btn-main"> Verify code
+            @if(isLoading == true){
+    
+                <span>
+                    <i class="fas fa-spin fa-spinner "></i>
+                </span>
+            }
+        </button>
+    </form>
+}
+
+   
+@if (step == 3) {
+
+    <form [formGroup]="resetPassword" class="bg-main-light rounded-4 p-3 shadow" (ngSubmit)="resetPassSubmit()">
+        <div class="my-2">
+            <label for="email">email</label>
+            <input readonly formControlName="email" type="email" id="email" class="form-control">
+        </div>
+        <div class="my-2">
+            <label for="newPassword">New password</label>
+            <input formControlName="newPassword" type="password" id="newPassword" class="form-control">
+        </div>
+
+        <button [disabled]="resetPassword.invalid" class="btn-main"> Verify Email
+            @if(isLoading == true){
+    
+                <span>
+                    <i class="fas fa-spin fa-spinner "></i>
+                </span>
+            }
+        </button>
+    </form>
+}
+    
+</section>
